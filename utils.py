@@ -3,7 +3,6 @@ import json
 from typing import Callable, Tuple
 
 import tensorflow as tf
-from tensorflow.python.types.core import Value
 import tensorflow_datasets as tfds
 import tensorflow_probability as tfp
 
