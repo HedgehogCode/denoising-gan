@@ -1,0 +1,25 @@
+{
+    "model_name": "drcnn_0.02",
+    "img_size": [
+        96,
+        96
+    ],
+    "noise_stddev": 0.02,
+    "batch_size": 16,
+    "steps_gen": 4000000,
+    "dataset_name": "div2k",
+    "dataset_image_key": "hr",
+    "generator_fn": "dncnn_generator_model",
+    "generator_kwargs": {
+        "internal_residuals": true
+    },
+    "lr_scheduler": {
+        "type": "LRReduceOnPlateau",
+        "kwargs": {
+            "monitor": "val/psnr",
+            "factor": 0.2,
+            "patience": 100,
+            "mode": "max"
+        }
+    }
+}

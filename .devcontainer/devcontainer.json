@@ -1,0 +1,45 @@
+{
+	"name": "TensorFlow - GPU",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/usr/bin/zsh",
+		"editor.rulers": [100],
+		// ---- Python specific settings
+		"python.pythonPath": "/usr/local/bin/python",
+		"python.formatting.provider": "autopep8",
+		"python.linting.pylintEnabled": false,
+		"jupyter.alwaysTrustNotebooks": true,
+		"python.languageServer": "Pylance",
+		"python.analysis.typeCheckingMode": "basic",
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		// ---- Python specific extensions
+		"ms-python.python",
+		"kevinrose.vsc-python-indent",
+		"ms-python.vscode-pylance"
+	],
+	// Always use the debug mode in scripts
+	"containerEnv": {
+		"DNGAN_DEBUG": "true"
+	},
+	// ---- Run with GPU driver
+	"runArgs": [
+		"--gpus", "all",
+		"--device", "/dev/nvidia0",
+		"--device", "/dev/nvidia-uvm",
+		"--device", "/dev/nvidia-uvm-tools",
+		"--device", "/dev/nvidiactl",
+	],
+	// Mount local directories
+	"mounts": [
+		// TensorFlow Datasets
+		"source=/home/benjamin/tensorflow_datasets,target=/home/vsdocker/tensorflow_datasets,type=bind,consistency=cached"
+	],
+	// Do not run as root
+	"remoteUser": "vsdocker"
+}

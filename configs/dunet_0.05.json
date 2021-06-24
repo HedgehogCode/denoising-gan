@@ -1,0 +1,29 @@
+{
+    "model_name": "dunet_0.05",
+    "img_size": [
+        96,
+        96
+    ],
+    "degrade": {
+        "type": "gaussian",
+        "stddev": 0.05
+    },
+    "batch_size": 16,
+    "steps_gen": 4000000,
+    "dataset_name": "div2k",
+    "dataset_image_key": "hr",
+    "generator_fn": "unet_generator_model",
+    "generator_kwargs": {
+        "num_levels": 4,
+        "filter_base": 64
+    },
+    "lr_scheduler": {
+        "type": "LRReduceOnPlateau",
+        "kwargs": {
+            "monitor": "val/psnr",
+            "factor": 0.2,
+            "patience": 100,
+            "mode": "max"
+        }
+    }
+}

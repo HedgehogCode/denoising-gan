@@ -1,0 +1,50 @@
+{
+    "model_name": "dunet+_0.0-0.2",
+    "img_size": [
+        96,
+        96
+    ],
+    "degrade": {
+        "type": "gaussian-map",
+        "stddev": [0, 0.2]
+    },
+    "batch_size": 16,
+    "steps_gen": 4000000,
+    "train_datasets": [
+        {
+            "name": "imagenette/full-size",
+            "image_key": "image"
+        },
+        {
+            "name": "div2k",
+            "image_key": "hr"
+        },
+        {
+            "name": "waterloo_exploration",
+            "image_key": "image"
+        },
+        {
+            "name": "flickr2k",
+            "image_key": "hr"
+        }
+    ],
+    "val_dataset": {
+        "name": "div2k",
+        "image_key": "hr"
+    },
+    "shuffle_buffer": 2048,
+    "generator_fn": "unet_generator_model",
+    "generator_kwargs": {
+        "num_levels": 4,
+        "filter_base": 64
+    },
+    "lr_scheduler": {
+        "type": "LRReduceOnPlateau",
+        "kwargs": {
+            "monitor": "val/psnr",
+            "factor": 0.2,
+            "patience": 100,
+            "mode": "max"
+        }
+    }
+}

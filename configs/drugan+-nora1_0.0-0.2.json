@@ -1,0 +1,63 @@
+{
+    "model_name": "drugan+-nora1_0.0-0.2",
+    "img_size": [
+        96,
+        96
+    ],
+    "degrade": {
+        "type": "gaussian-map",
+        "stddev": [0, 0.2]
+    },
+    "batch_size": 16,
+    "steps_gen": 700000,
+    "steps_gan": 2000000,
+    "generator_loss": {
+        "vgg54": {
+            "name": "vgg54_ba",
+            "weight": 1
+        },
+        "mae": {
+            "name": "mae",
+            "weight": 15
+        },
+        "adv": {
+            "name": "adv",
+            "weight": 1
+        }
+    },
+    "dis_per_step": 1,
+    "train_datasets": [
+        {
+            "name": "imagenette/full-size",
+            "image_key": "image"
+        },
+        {
+            "name": "div2k",
+            "image_key": "hr"
+        },
+        {
+            "name": "waterloo_exploration",
+            "image_key": "image"
+        },
+        {
+            "name": "flickr2k",
+            "image_key": "hr"
+        }
+    ],
+    "val_dataset": {
+        "name": "div2k",
+        "image_key": "hr"
+    },
+    "shuffle_buffer": 2048,
+    "generator_config": "drunet+_0.0-0.2.json",
+    "discriminator_fn": "convnet_discriminator_model",
+    "discriminator_kwargs": {
+        "filter_base": 32,
+        "downsampling": "strided",
+        "conv_per_res": 3,
+        "num_res_levels": 4,
+        "dense_layers": [
+            1024
+        ]
+    }
+}
