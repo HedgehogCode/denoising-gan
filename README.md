@@ -57,7 +57,15 @@ Exporting the generator to a h5 file:
 $ python checkpoint_to_h5.py -c /path/to/checkpoints configs/my_config.json /path/to/model.h5
 ```
 
+## References
+
+**DnCNN:** K. Zhang, W. Zuo, Y. Chen, D. Meng, and L. Zhang, [“Beyond a Gaussian Denoiser: Residual Learning of Deep CNN for Image Denoising,”](https://doi.org/10.1109/TIP.2017.2662206) IEEE Trans. on Image Process., vol. 26, no. 7, pp. 3142–3155, Jul. 2017, doi: 10.1109/TIP.2017.2662206.
+
+**DRUNet** K. Zhang, Y. Li, W. Zuo, L. Zhang, L. Van Gool, and R. Timofte, [“Plug-and-Play Image Restoration with Deep Denoiser Prior,”](http://arxiv.org/abs/2008.13751) arXiv:2008.13751 [cs, eess], Aug. 2020
+
+
 ## TODO
 
 * Move evaluate.py script to other repository, also adapt the dependencies
 * Add download links for trained models
+* Add more references
