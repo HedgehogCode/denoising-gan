@@ -20,6 +20,7 @@ This repository contains code to train denoising GANs with TensorFlow 2.
 * `drugan+-nora2_0.0-0.2`: DRUGAN without relativistic discriminator
 * `drugan+-nora1_0.0-0.2`
 
+Pretrained models can be downloaded from [Google Drive](https://drive.google.com/drive/folders/1xZ6CRn8uVUEyjyodoSTDJAPoscrx33Bn?usp=sharing).
 
 ## Getting Started
 
@@ -59,13 +60,13 @@ $ python checkpoint_to_h5.py -c /path/to/checkpoints configs/my_config.json /pat
 
 ## References
 
-**DnCNN:** K. Zhang, W. Zuo, Y. Chen, D. Meng, and L. Zhang, [“Beyond a Gaussian Denoiser: Residual Learning of Deep CNN for Image Denoising,”](https://doi.org/10.1109/TIP.2017.2662206) IEEE Trans. on Image Process., vol. 26, no. 7, pp. 3142–3155, Jul. 2017, doi: 10.1109/TIP.2017.2662206.
-
-**DRUNet** K. Zhang, Y. Li, W. Zuo, L. Zhang, L. Van Gool, and R. Timofte, [“Plug-and-Play Image Restoration with Deep Denoiser Prior,”](http://arxiv.org/abs/2008.13751) arXiv:2008.13751 [cs, eess], Aug. 2020
+* **DnCNN:** K. Zhang, W. Zuo, Y. Chen, D. Meng, and L. Zhang, [“Beyond a Gaussian Denoiser: Residual Learning of Deep CNN for Image Denoising”](https://doi.org/10.1109/TIP.2017.2662206)
+* **DRUNet:** K. Zhang, Y. Li, W. Zuo, L. Zhang, L. Van Gool, and R. Timofte, [“Plug-and-Play Image Restoration with Deep Denoiser Prior”](http://arxiv.org/abs/2008.13751)
+* **VGG Loss:** J. Johnson, A. Alahi, and L. Fei-Fei, [“Perceptual Losses for Real-Time Style Transfer and Super-Resolution”](https://doi.org/10.1007/978-3-319-46475-6_43)
+* **Relativistic Discriminator:** A. Jolicoeur-Martineau, [“The relativistic discriminator: a key element missing from standard GAN”](https://openreview.net/forum?id=S1erHoR5t7)
+* **ESRGAN:** X. Wang et al., [“ESRGAN: Enhanced Super-Resolution Generative Adversarial Networks”](https://doi.org/10.1007/978-3-030-11021-5_5)
 
 
 ## TODO
 
 * Move evaluate.py script to other repository, also adapt the dependencies
-* Add download links for trained models
-* Add more references
